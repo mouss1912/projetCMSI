@@ -1,44 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Create a stylish landing page for your business startup and get leads for the offered services with this free HTML landing page template.">
-    <meta name="author" content="Inovatik">
+<?php
+session_start();
+include 'entete.php';
+?>
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-    <meta property="og:site_name" content="" /> <!-- website name -->
-    <meta property="og:site" content="" /> <!-- website link -->
-    <meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-    <meta property="og:type" content="article" />
-
-    <!-- Website Title -->
-    <title>Sen Foncia</title>
-    
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/table.css" rel="stylesheet">
-    <link href="css/liste_images.css" rel="stylesheet">
-    
-
-    <!-- JS -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/other_function.js"></script>
-
-    
-    <!-- Favicon  -->
-    <!-- <link rel="icon" href="images/favicon.png"> -->
-</head>
+<!-- Debut du corps du site -->
 <body data-spy="scroll" data-target=".fixed-top">
 
     <!-- Preloader -->
@@ -75,237 +40,248 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#services">Louer</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">Details du logement</a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#request">Acheter</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#request">Vendre</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Liste logement</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="recherche.php"><span class="item-text">Rechercher un logement</span></a>
-                    </div>
+                <!-- <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#request">Request</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms Conditions</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy Policy</span></a>
-                    </div>
-                </li>
+            -->
+            <!-- Dropdown Menu -->          
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle page-scroll" href="listeLogement.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Terrain</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Appartement</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Villa</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Chambre</span></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="term.php"><span class="item-text">Terms Conditions</span></a>
+                    <div class="dropdown-items-divide-hr"></div>
+                    <a class="dropdown-item" href="confidentialite.php"><span class="item-text">confidentialité</span></a>
+                </div>
+            </li>
+            <!-- end of dropdown menu -->
 
-                
-
+            <li class="nav-item">
+                <a class="nav-link page-scroll" href="#contact">Contact</a>
+            </li>
+            <?php
+            if( isset($_SESSION["admin"]) ){
+                ?>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    <a class="nav-link page-scroll" href="#admin_add_adh">Admin</a>
                 </li>
-                
-            </ul>
-            <span class="nav-item social-icons">
-                <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x facebook"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack">
-                    <a href="#your-link">
-                        <i class="fas fa-circle fa-stack-2x twitter"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
+                <?php
+            }
+            ?>
+        </ul>
+        <span class="nav-item social-icons">
+            <span class="fa-stack">
+                <a href="">
+                    <i class="fas fa-circle fa-stack-2x facebook"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                </a>
             </span>
-        </div>
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
-
-
-    <!-- Header -->
-    <header id="header" class="header">
-        <div class="header-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1><span class="turquoise">Sen </span> Foncia </h1>
-                            <p class="p-large">Une agence immobilliére entre particullier ...</p>
-                            <a class="btn-solid-lg page-scroll" href="#services">DECOUVRIR</a>
-                            
-                            <a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">INSCRIPTION</a>
-                            <a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">CONNEXION</a>
-                        </div> 
-                    </div> 
-
-
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of header-content -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
-
-    <!-- Services -->
-    <div id="services" class="cards-1">
+            <span class="fa-stack">
+                <a href="#your-link">
+                    <i class="fas fa-circle fa-stack-2x twitter"></i>
+                    <i class="fab fa-twitter fa-stack-1x"></i>
+                </a>
+            </span>
+        </span>
+    </div>
+</nav> <!-- end of navbar -->
+<!-- end of navigation -->
+<!-- Header -->
+<header id="header" class="header">
+    <div class="header-content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2>Logement</h2>
-                    <p class="p-heading p-large"> Liste des logements (on sépare ou pas)</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <div class="text-container">
+                        <h1><span class="turquoise"> Sen </span> Foncia </h1>
+                        
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</header> 
+<!-- end of header -->
 
-                    <!-- Card -->
-                    <div class="card">
-                        <img class="card-image" src="images/image1.jpg" alt="alternative"></a>
-                        <div class="card-body">
-                            <h4 class="card-title">villa 1</h4>
-                            <p> description</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
 
-                    <!-- Card -->
-                    <div class="card">
-                        <img class="card-image" src="images/image2.jpg" alt="alternative"></a>
-                        <div class="card-body">
-                            <h4 class="card-title">villa 2</h4>
-                            <p> desc 2.</p>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <a href="https://sns.edu.umontpellier.fr/fr/master-sciences-numerique-pour-la-sante-montpellier/bcd/">
-                            <img class="card-image" src="images/image3.jpg" alt="alternative"></a>
-                            <div class="card-body">
-                                <h4 class="card-title">villa 3</h4>
-                                <p> desc 3</p>
-                            </div>
-                        </div>
-                        <!-- end of card -->
-
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of cards-1 -->
-        <!-- end of services -->
-
-        <!-- details-lightbox-3 -->
-        <!-- formulaire de connexion -->
-        <div id="details-lightbox-3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-            <div class="container">
-                <div class="row">
-                    <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-
-                    <div class="col-lg-5"> 
-                      
-                        <h5>Connexion</h5>
-                        <p>Connecter vous pour acceder aux services du site</p>
-                        <p>Si vous n'avait pas d'identfiant ou de mot de passe, veuillez creer un compte</p>
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-check"></i><div class="media-body">Fourni un accés au drive</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-check"></i><div class="media-body">Accées à la liste des contacts</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <form data-toggle="validator" data-focus="false">
-                            <div class="form-group">
-                                <input type="email" class="form-control-input" id="cmail" name="cmail" required>
-                                <label class="label-control" for="cmail">Mail *</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control-input" id="cpassword" name="cpassword" required>
-                                <label class="label-control" for="cpassword">Mot de passe *</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div id="connect_error" class="help-block with-errors"></div>
-
-                            <div class="form-group">
-                                <input type="button" class="btn-solid-reg as-button" value="CONNEXION" >
-                                <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
-                            </div>
-                        </form>
-
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </div> <!-- end of lightbox-basic -->
-        <!-- end of details lightbox 3 -->
-
-        
-    </div> <!-- end of container -->
-</div> <!-- end of lightbox-basic -->
-<!-- end of details lightbox 4 -->
-
-<!-- Détail logement -->
-<!-- Pricing -->
-<div id="pricing" class="cards-2">
+<!-- Customers -->
+<div class="slider-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Detail logement</h2>
-                <p class="p-heading p-large">We've prepared pricing plans for all budgets so you can get started right away. They're great for small companies and large organizations</p>
+                <h5>Trusted By</h5>
+
+                <!-- Image Slider -->
+                <div class="slider-container">
+                    <div class="swiper-container image-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-1.png" alt="alternative">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-2.png" alt="alternative">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-3.png" alt="alternative">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-4.png" alt="alternative">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-5.png" alt="alternative">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image-container">
+                                    <img class="img-responsive" src="images/customer-logo-6.png" alt="alternative">
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- end of image slider -->
+
+            </div> 
+        </div> 
+    </div> 
+</div> 
+<!-- end of customers -->
+
+
+<!-- Liste des logements : A reprendre  -->
+<?php
+ // function echo_liste_logement($admin=false){
+ //        global $USER_DB, $PASSWORD_DB, $NAME_DB, $HOST_DB;
+
+ //        $user       = $USER_DB;
+ //        $pass       = $PASSWORD_DB;
+ //        $db_name    = $NAME_DB;
+ //        $host       = $HOST_DB;
+
+ //        $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
+
+ //        try {
+ //            $query = "SELECT typelogement, prix, localite, photo FROM logement;";
+
+ //            $stmt = $dbh->prepare($query);
+ //            $stmt->execute();
+
+ //            if($admin === false){
+
+ //                while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
+ //                    echo "<tr>\n";
+ //                    foreach ($ligne as $col_value) {
+ //                        echo "<td>\n";
+ //                        echo $col_value;
+ //                        echo "\n</td>\n";
+ //                    }
+ //                    echo "\n</tr>\n";
+ //                }
+ //            }
+ //            else{
+ //                $maile = null;
+ //                while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
+ //                    echo "<tr>\n";
+ //                    foreach ($ligne as $col_value) {
+ //                        if( !(stristr($string, '@') === FALSE) ){
+ //                            echo "<td>\n";
+ //                            echo $col_value;
+ //                            echo "\n</td>\n";
+ //                            echo "<td>\n";
+ //                            echo '<a class="delete_btn" href="#" data-id='.$col_value.'> Supprimer </a>';
+ //                            echo "\n</td>\n";
+ //                        }
+ //                    }
+
+ //                    echo "\n</tr>\n";
+ //                }
+ //            }
+
+ //            $stmt->closeCursor();
+
+ //        } 
+ //        catch (PDOException $e) {
+ //            print "Erreur !: " . $e->getMessage() . "<br/>";
+ //            die();
+ //        }
+ //        $dbh = null;
+ //    }
+
+
+?>
+
+<!-- Services -->
+<div id="services" class="cards-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Logement</h2>
+                <p class="p-heading p-large"> Liste des logements (on sépare ou pas)</p>
             </div> <!-- end of col -->
         </div> <!-- end of row -->
         <div class="row">
+            <?php 
+                    // echo '<div class="col-lg-12">';
+                    // echo '<div class="card"> ';
+                    // echo '<img class="card-image" src="images/image1.jpg" alt="alternative">';
+                    // echo '<div class="card-body">';
+                    // echo '<h4 class = card-title> villa 1 php </h4>';
+                    // echo '<p> description 1</p>';
+                    // echo '</div>';
+
+            ?>
+
+            <?php 
+                  //  echo_liste_logement();
+            ?>
             <div class="col-lg-12">
-
-                <!-- Card-->
-                <div class="card">
+                <div class="card">                      
+                    <img class="card-image" src="images/image1.jpg" alt="alternative">
                     <div class="card-body">
-                        <div class="card-title">Logement 1</div>
-                        <div class="card-subtitle">Just to see what can be achieved</div>
-                        <hr class="cell-divide-hr">
-                        <div class="price">
-                            <span class="currency">€</span><span class="value">900M</span>
-                            <div class="frequency">mois</div>
-                        </div>
-                        <hr class="cell-divide-hr">
-                        <ul class="list-unstyled li-space-lg">
-                            <li class="media">
-                                <i class="fas fa-check"></i><div class="media-body">Accés au drive</div>
-                            </li>
-                            <li class="media">
-                                <i class="fas fa-check"></i><div class="media-body">Accés aux contacts des anciens membres</div>
-                            </li>
-                        </ul>
-                        <div class="button-wrapper">
-                            <a class="btn-solid-reg page-scroll" href="#contact">REQUEST</a>
-                        </div>
+                        <h4 class="card-title">villa 1</h4>
+                        <p> description 1 </p>
                     </div>
-                </div> <!-- end of card -->               
+                </div>
+            </div>  
+        </div> 
+    </div> 
+</div> 
+<!-- end of services -->
 
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of container -->
-</div> <!-- end of cards-2 -->
-<!-- end of pricing -->          
 
 
-<!-- Scripts -->
-<script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-<script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-<script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-<script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-<script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-<script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-<script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-<script src="js/scripts.js"></script> <!-- Custom scripts -->
+
+<!-- Contact -->
+<?php
+include 'footer.php';
+?>
 
 </body>
 </html>

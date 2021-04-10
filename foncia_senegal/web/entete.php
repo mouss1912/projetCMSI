@@ -1,3 +1,9 @@
+<?php
+include '../vars.php';
+require("../functions.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +24,7 @@
     <meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Sen Foncia</title>
+    <title>Foncia Senegal</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
@@ -31,88 +37,52 @@
     <link href="css/liste_images.css" rel="stylesheet">
     
 
+    <!-- JS -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/other_function.js"></script>
+    <script type="text/javascript" src="js/inscription.js"></script>
+
+
+    <?php 
+    if( ! array_key_exists('connecter', $_SESSION) ){
+        echo "
+        <script type=\"text/javascript\">
+        var connecter = false;
+        </script>
+        ";
+    }
+    else{
+        if($_SESSION["connecter"] == true ){
+            if(isset($_SESSION["id"])){
+                echo "<script type=\"text/javascript\">
+                var connecter = true;
+                </script>
+                ";
+
+                echo "
+                <script type=\"text/javascript\">
+                var email =\"".$_SESSION["id"]."\";
+                </script>
+                ";
+            }
+            else{
+                echo "
+                <script type=\"text/javascript\">
+                var connecter = true;
+                </script>
+                ";
+            }
+        }
+        else{
+            echo "
+            <script type=\"text/javascript\">
+            var connecter = false;
+            </script>
+            ";
+        }
+    }
+    ?>
+    <!-- Favicon  -->
+    <!-- <link rel="icon" href="images/favicon.png"> -->
+
 </head>
-<body data-spy="scroll" data-target=".fixed-top">
-
-    <!-- Preloader -->
-    <div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div>
-    <!-- end of preloader -->
-    
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-
-        <!-- Image Logo -->
-        <a class="navbar-brand logo-image" href="index.php"><img src="images/foncia.png" alt="alternative"></a>
-        
-        <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-awesome fas fa-bars"></span>
-            <span class="navbar-toggler-awesome fas fa-times"></span>
-        </button>
-        <!-- end of mobile menu toggle button -->
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">Louer</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Acheter</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Vendre</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Liste logement</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="recherche.php"><span class="item-text">Rechercher un logement</span></a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms Conditions</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy Policy</span></a>
-                    </div>
-                </li>
-
-                <!-- end of dropdown menu -->
-
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">Contact</a>
-                </li>
-                
-            </ul>
-            <span class="nav-item social-icons">
-                <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x facebook"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x twitter"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-            </span>
-        </div>
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
-
-</body>
