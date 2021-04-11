@@ -275,6 +275,114 @@ include 'entete.php';
 </div> 
 <!-- end of services -->
 
+<!-- Boutton pour ajouter un bien -->
+<a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6">AJOUTER UN BIEN</a>
+<!-- details-lightbox-5 -->
+<!-- formulaire d'inscription -->
+<div id="details-lightbox-6" class="lightbox-basic zoom-anim-dialog mfp-hide">
+    <div class="container">
+        <form action="listeLogement.php" method="POST" id="formu" style="text-align: center;">
+
+            <h1><b>Ajouter un logement<b></h1></br>
+             <p>Titre de l'annonce</p> 
+             <input type="text" required placeholder="saisisser votre titre" name="titre" placeholder="titre de l'annonce">
+
+
+             <p>Type de transaction</p> 
+
+             <div >
+                <input type="radio" id="location" name="type" required value="location" 
+                checked> 
+                <label for="location">Location</label>
+
+                <input type="radio" id="vente" name="type" value="vente">
+                <label for="vente">Vente</label> 
+
+                <input type="radio" id="achat" name="type" value="achat">
+                <label for="achat">Achat</label>
+            </div>
+
+
+
+            <label for=" typeLogement">Type de logement</label></br>
+
+            <select id="type de recette" required name="categorie">
+                <option value="">--Veuillez choisir une option--</option>
+                <option value="appartement">Appartement</option> 
+                <option value="chambre">Chambre</option>
+                <option value="maison">Maison</option>
+                <option value="terrain">Terrain</option>
+
+            </select>
+
+            <p>Nombre de piéce</p>
+
+            <div>
+                <input type ="number" id="nbrPiece" name="nbrPiece" required min="1">
+
+            </div> 
+
+
+            <p>Prix</p>
+            <div>
+                <input type ="number" id="nombre" name="prix" required >
+
+
+            </div> 
+
+            <p>Nom propriétaire</p>
+
+            <div>
+                <input type="text" id="proprio" name="proprio" placeholder="votre nom">
+            </div> 
+
+            <p>Nom locataire</p>
+
+            <div>
+                <input type="text" id="locataire" name="locataire" placeholder="votre nom">
+            </div> 
+
+            <p>Courriel</p>
+
+            <div>
+                <input type="email"  required placeholder="email" id="mail" name="email" >
+
+            </div>
+
+            <p>Description</p>
+
+            <div>
+                <input type="text" id="description" name="description" placeholder="description du bien">
+            </div> 
+
+            <p>Photo</p>
+
+            <div>
+                <input type="url"
+                id="image" name="photo" placeholder="saisir url" 
+                >
+            </div> 
+
+
+            <p>date d'ajout</p>
+
+            <div>
+                <input type="date" required id="start" name="date"
+
+                min="2021-04-11" max="2022-12-31">
+
+            </div> 
+
+            <div>
+                <input type="submit" name="submit"  id="submit">
+
+            </div>
+
+        </form>
+    </div>
+</div> 
+
+
 
 
 

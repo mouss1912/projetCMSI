@@ -2,11 +2,13 @@
 function register() {
     console.log("je suis dans register");
     if(connecter){
+        console.log("rttrt 1");
+
         verif_connexion(false);
-        console.log("rttrt");
-        document.location.href = "./index.php"; 
+        //document.location.href = "./index.php"; 
     }
     else{
+        console.log("ins")
         inscrire();
     }
 
@@ -21,7 +23,7 @@ function inscrire() {
     var nom = $("#cnom").val();
     var prenom = $("#cprenom").val();
     var email = $("#cemail").val();
-    var mdp = $("#cmdp").val();
+    var password = $("#cmdp").val();
     var tel = $("#ctel").val();
     var adresse = $("#cadresse").val();
     var civilite = $("#ccivilite").val();
@@ -29,21 +31,23 @@ function inscrire() {
 
     var url = "php/inscription.php";
 
-    if( nom != "" && prenom != "" && email != "" && mdp != "" && tel != "" && adresse != "" && civilite != "" ){
-        $.post(url, {cnom:nom, cprenom:prenom, cemail:email, cmdp:mdp, ctel:tel, cadresse:adresse, ccivilite:civilite }, 
+    if(nom != "" && prenom != "" && email != "" && password != "" && tel != "" && adresse != "" && civilite != ""){
+        console.log("bbb")
+        $.post(url, {nom:nom, prenom:prenom, email:email, password:password, tel:tel, adresse:adresse, civilite:civilite }, 
             function(data) {
+                console.log("inin")
 
-             //    infos = data.infos;
-             //    console.log(infos);
+                //infos = data.infos;
+                console.log(data);
 
-             //    if(infos.length != 0){
-             // //  verif_connexion(true);
-             document.location.href = "./index.php"; 
-        //      $("#connect_error").html("");
-        //  }
-        //  else{
-        //     $("#connect_error").html("Addresse mail ou mot de passe incorrect inscription.");
-        // }
+         if(data.length != 0){
+             //  verif_connexion(true);
+                document.location.href = "./index.php"; 
+             $("#connect_error").html("");
+         }
+         else{
+            $("#connect_error").html("Addresse mail ou mot de passe incorrect inscription.");
+        }
 
     },"json");            
     }

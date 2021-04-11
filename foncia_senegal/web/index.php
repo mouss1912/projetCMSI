@@ -44,8 +44,10 @@ include 'entete.php';
                     <a class="nav-link page-scroll" href="#request">Acheter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Vendre</a>
+                    <a class="nav-link page-scroll" href="#details-lightbox-1">Vendre</a>
+
                 </li>
+                
 
                 <!-- <li class="nav-item">
                     <a class="nav-link page-scroll" href="#request">Request</a>
@@ -119,7 +121,7 @@ include 'entete.php';
 
                         <a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">CONNEXION</a>
 
-                        <a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-5">INSCRIPTION</a>
+                        <a id="btn_inscripion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-5">INSCRIPTION</a>
 
                     </div> 
                 </div> 
@@ -206,15 +208,17 @@ include 'entete.php';
 
             ?>
 
-            <?php 
-                   echo_liste_logement();
+            <?php
+            echo_liste_logement();
             ?>
-            <div class="col-lg-12">
-                <div class="card">                      
-                    <img class="card-image" src="images/image1.jpg" alt="alternative">
-                    <div class="card-body">
-                        <h4 class="card-title">villa 1</h4>
-                        <p> description 1 </p>
+            <div id="content-box">
+                <div class="col-lg-12">
+                    <div class="card">                      
+                        <img class="card-image" src="images/image1.jpg" alt="alternative">
+                        <div class="card-body">
+                            <h4 class="card-title">villa 1</h4>
+                            <p> description 1 </p>
+                        </div>
                     </div>
                 </div>
             </div>  
@@ -222,6 +226,7 @@ include 'entete.php';
     </div> 
 </div> 
 <!-- end of services -->
+
 
 
 <!-- Details 1 -->
@@ -286,47 +291,73 @@ include 'entete.php';
 </div> 
 <!-- end of details 2 -->
 
-<!-- Details Lightboxes -->
+<!-- Ajout de logemen -->
 <!-- Details Lightbox 1 -->
 <div id="details-lightbox-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-    <div class="container">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-            <div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/details-lightbox-1.svg" alt="alternative">
-                </div> 
-            </div> 
-            <div class="col-lg-4">
-                <h3>Design And Plan</h3>
-                <hr>
-                <h5>Core feature</h5>
-                <p>The emailing module basically will speed up your email marketing operations while offering more subscriber control.</p>
-                <p>Do you need to build lists for your email campaigns? It just got easier with Evolo.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">List building framework</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">Easy database browsing</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">User administration</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">Automate user signup</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">Quick formatting tools</div>
-                    </li>
-                    <li class="media">
-                        <i class="fas fa-check"></i><div class="media-body">Fast email checking</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" href="#contact">REQUEST</a> <a class="btn-outline-reg mfp-close as-button" href="#screenshots">BACK</a>
-            </div> 
-        </div> 
-    </div> 
+ <div class="container">
+    <div class="row">
+        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+        <div class="col-lg-4"> 
+            <h5>Ajouter un bien</h5>
+            <p>Inscrivez vous pour devenir client</p>
+            <p>Si vous n'avait pas d'identfiant ou de mot de passe, veuillez nous contacter </p>
+            <ul class="list-unstyled li-space-lg">
+                <li class="media">
+                    <i class="fas fa-check"></i><div class="media-body">Fourni un accés au drive </div>
+                </li>
+                <li class="media">
+                    <i class="fas fa-check"></i><div class="media-body">Accées à la liste des clients</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-7">
+            <form data-toggle="validator" data-focus="false">
+             <div class="form-group">
+                <input type="text" class="form-control-input" id="cnom" required>
+                <label class="label-control" for="cnom">Nom</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="cprenom" required>
+                <label class="label-control" for="cprenom">Prénom</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control-input" id="cemail" name="cemail" required>
+                <label class="label-control" for="cemail">Mail *</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control-input" id="cmdp" name="cmdp" required>
+                <label class="label-control" for="cmdp">Mot de passe *</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="ctel" required>
+                <label class="label-control" for="ctel">Telephone</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control-input" id="cadresse" required>
+                <label class="label-control" for="cadresse">Adresse</label>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label for="ccivilite">Civilité</label>
+                <select class="form-control" id="ccivilite">
+                  <option>Mr</option>
+                  <option>Mme</option>
+              </select>
+          </div>
+          <div id="connect_error" class="help-block with-errors"></div>
+
+          <div class="form-group" style=" text-align: center;">
+            <input type="button" class="btn-solid-reg as-button" value="INSCRIPTION" onclick="register()">
+            <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+        </div>
+    </form>
+</div> 
 </div> 
 <!-- end of details lightbox 1 -->
 
@@ -450,7 +481,7 @@ include 'entete.php';
             <div class="col-lg-7">
                 <form data-toggle="validator" data-focus="false">
                  <div class="form-group">
-                    <input type="text" class="form-control-input" id="cnom" required>
+                    <input type="text" class="form-control-input" id="cnom" required >
                     <label class="label-control" for="cnom">Nom</label>
                     <div class="help-block with-errors"></div>
                 </div>
@@ -470,33 +501,34 @@ include 'entete.php';
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control-input" id="ctel" required>
-                    <label class="label-control" for="ctel">Telephone</label>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control-input" id="cadresse" required>
-                    <label class="label-control" for="cadresse">Adresse</label>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <label for="ccivilite">Civilité</label>
-                    <select class="form-control" id="ccivilite">
-                      <option>Mr</option>
-                      <option>Mme</option>
-                  </select>
-              </div>
-              <div id="connect_error" class="help-block with-errors"></div>
+                   <!--    <input type="text" class="form-control-input" value="0983332222" id="ctel" required> -->
+                   <input type="text" class="form-control-input" id="ctel" required>
 
-              <div class="form-group" style=" text-align: center;">
-                <input type="button" class="btn-solid-reg as-button" value="INSCRIPTION" onclick="register()">
-                <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+                   <label class="label-control" for="ctel" >Telephone</label>
+                   <div class="help-block with-errors"></div>
+               </div>
+               <div class="form-group">
+                <input type="text" class="form-control-input" id="cadresse" required>
+                <label class="label-control" for="cadresse">Adresse</label>
+                <div class="help-block with-errors"></div>
             </div>
-        </form>
-    </div> 
+            <div class="form-group">
+                <label for="ccivilite">Civilité</label>
+                <select class="form-control" id="ccivilite">
+                  <option>Mr</option>
+                  <option>Mme</option>
+              </select>
+          </div>
+          <div id="connect_error" class="help-block with-errors"></div>
+
+          <div class="form-group" style=" text-align: center;">
+            <input type="button" class="btn-solid-reg as-button" value="INSCRIPTION" onclick="register()">
+            <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+        </div>
+    </form>
 </div> 
 </div> 
-</div> 
+
 
 
 <!-- tableau liste de contact -->
@@ -761,6 +793,23 @@ include 'entete.php';
 <?php
 include 'footer.php';
 ?>
+
+<script type="text/javascript">
+
+
+    function add_box(title, description){
+        var chain ="";
+        chain += '<div class="col-lg-12">'
+        chain += '<div class="card">'                   
+        chain += '<img class="card-image" src="images/image1.jpg" alt="alternative">'
+        chain += '<div class="card-body">'
+        chain += '<h4 class="card-title">' + title + '</h4>'
+        // chain += '<h4 class="card-title">' + "title" + '</h4>'
+        chain += '<p>' + description + '</p>'
+        chain += '</div></div></div>'
+        $("#content-box").append(chain)
+    }
+</script>
 
 </body>
 </html>
