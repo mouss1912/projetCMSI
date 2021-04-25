@@ -2299,3 +2299,11 @@ a:hover.back-to-top {
             transform: translateX(-8px) translateY(-8px);
   }
 }
+
+
+
+.card-title {
+    margin-bottom: 0.75rem;
+    text-align: left;
+    font-weight: bold;
+}

@@ -20,7 +20,6 @@ if(array_key_exists('nom', $_POST) and array_key_exists('prenom', $_POST) and ar
     $adresse  = $_POST['adresse'];
     $civilite  = $_POST['civilite'];
     //echo "Je suis dans inscription .php";
-
     try {
         $q = "INSERT INTO client (`nom`,`prenom`,`mail`,`password`,`tel`, `adresse`, `civilite`) values('$nom','$prenom','$mail','$mdp','$tel', '$adresse', '$civilite');";
 

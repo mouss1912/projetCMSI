@@ -176,66 +176,6 @@ include 'entete.php';
 
 
 <!-- Liste des logements : A reprendre  -->
-<?php
- // function echo_liste_logement($admin=false){
- //        global $USER_DB, $PASSWORD_DB, $NAME_DB, $HOST_DB;
-
- //        $user       = $USER_DB;
- //        $pass       = $PASSWORD_DB;
- //        $db_name    = $NAME_DB;
- //        $host       = $HOST_DB;
-
- //        $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
-
- //        try {
- //            $query = "SELECT typelogement, prix, localite, photo FROM logement;";
-
- //            $stmt = $dbh->prepare($query);
- //            $stmt->execute();
-
- //            if($admin === false){
-
- //                while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
- //                    echo "<tr>\n";
- //                    foreach ($ligne as $col_value) {
- //                        echo "<td>\n";
- //                        echo $col_value;
- //                        echo "\n</td>\n";
- //                    }
- //                    echo "\n</tr>\n";
- //                }
- //            }
- //            else{
- //                $maile = null;
- //                while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
- //                    echo "<tr>\n";
- //                    foreach ($ligne as $col_value) {
- //                        if( !(stristr($string, '@') === FALSE) ){
- //                            echo "<td>\n";
- //                            echo $col_value;
- //                            echo "\n</td>\n";
- //                            echo "<td>\n";
- //                            echo '<a class="delete_btn" href="#" data-id='.$col_value.'> Supprimer </a>';
- //                            echo "\n</td>\n";
- //                        }
- //                    }
-
- //                    echo "\n</tr>\n";
- //                }
- //            }
-
- //            $stmt->closeCursor();
-
- //        } 
- //        catch (PDOException $e) {
- //            print "Erreur !: " . $e->getMessage() . "<br/>";
- //            die();
- //        }
- //        $dbh = null;
- //    }
-
-
-?>
 
 <!-- Services -->
 <div id="services" class="cards-1">
@@ -258,79 +198,122 @@ include 'entete.php';
 
             ?>
 
-            <?php 
-                  //  echo_liste_logement();
+            <?php
+            echo_liste_logement();
             ?>
-            <div class="col-lg-12">
-                <div class="card">                      
-                    <img class="card-image" src="images/image1.jpg" alt="alternative">
-                    <div class="card-body">
-                        <h4 class="card-title">villa 1</h4>
-                        <p> description 1 </p>
+            <!-- <div id="content-box">
+                <div class="col-lg-12">
+                    <div class="card">                      
+                        <img class="card-image" src="images/image1.jpg" alt="alternative">
+                        <div class="card-body">
+                            <h4 class="card-title">villa 1</h4>
+                            <p> description 1 </p>
+                        </div>
                     </div>
                 </div>
-            </div>  
+            </div>   -->
         </div> 
     </div> 
 </div> 
 <!-- end of services -->
 
+
 <!-- Boutton pour ajouter un bien -->
 <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6">AJOUTER UN BIEN</a>
-<!-- details-lightbox-5 -->
+<!--   ########################. details-lightbox-5 #############################-->
+<!-- vérification du fichier image uploader -->
+
+<?php
+if(!empty($_FILES)){
+    require("imgClass.php");
+    $img = $_FILES['img'];
+    $ext = strtolower(substr($img['name'],-3));
+    $allow_ext = array("jpg",'png','gif');
+    if(in_array($ext,$allow_ext)){
+        move_uploaded_file($img['tmp_name'],"images/".$img['name']);
+        Img::creerMin("images/".$img['name'],"images/min",$img['name'],215,112);
+        Img::convertirJPG("images/".$img['name']);
+    }
+    else{
+        $erreur = "Votre fichier n'est pas une image";
+    }
+}
+
+?>
+
+
+<!-- recupération des images dans le dossier min -->
+<?php
+$dos = "images/min";
+$dir = opendir($dos);
+while($file = readdir($dir)){
+    $allow_ext = array("jpg",'png','gif');
+    $ext = strtolower(substr($file,-3));
+    if(in_array($ext,$allow_ext)){
+        ?>
+        <div class="min">
+            <a href="images/<?php echo $file; ?>" rel="zoombox[galerie]">
+                <img src="images/min/<?php echo $file; ?>"/>
+                <h3><?php echo $file; ?></h3>
+            </a>
+        </div>
+        <?php
+    }
+}
+?>
+
+<!-- affichage d'erreur de téléchargement -->
+<?php
+if(isset($erreur)){
+    echo $erreur;
+}
+
+?>
 <!-- formulaire d'inscription -->
 <div id="details-lightbox-6" class="lightbox-basic zoom-anim-dialog mfp-hide">
     <div class="container">
-        <form action="listeLogement.php" method="POST" id="formu" style="text-align: center;">
+        <form action="listeLogement.php" method="post" id="formu" enctype="multipart/form-data" style="text-align: center;" >
 
             <h1><b>Ajouter un logement<b></h1></br>
-             <p>Titre de l'annonce</p> 
-             <input type="text" required placeholder="saisisser votre titre" name="titre" placeholder="titre de l'annonce">
 
-
-             <p>Type de transaction</p> 
+             <label> Type de transaction </label>
 
              <div >
-                <input type="radio" id="location" name="type" required value="location" 
+                <input type="radio" id="typeTransaction" name="typeTransaction"  value="location" 
                 checked> 
                 <label for="location">Location</label>
 
-                <input type="radio" id="vente" name="type" value="vente">
+                <input type="radio" id="typeTransaction" name="typeTransaction" value="vente">
                 <label for="vente">Vente</label> 
 
-                <input type="radio" id="achat" name="type" value="achat">
+                <input type="radio" id="typeTransaction" name="typeTransaction" value="achat">
                 <label for="achat">Achat</label>
             </div>
 
+          <!--   <div class="form-group">
+                                <input type="text" class="form-control-input" id="cnom" required>
+                                <label class="label-control" for="cnom">Nom</label>
+                                <div class="help-block with-errors"></div>
+                            </div> -->
+
+                            <label for="typeLogement">Type de logement</label></br>
+                            <select id="typeLogement" required name="typeLogement">
+                                <option value="">---</option>
+                                <option value="appartement">Appartement</option> 
+                                <option value="chambre">Chambre</option>
+                                <option value="maison">Maison</option>
+                                <option value="terrain">Terrain</option>
+                            </select>
 
 
-            <label for=" typeLogement">Type de logement</label></br>
 
-            <select id="type de recette" required name="categorie">
-                <option value="">--Veuillez choisir une option--</option>
-                <option value="appartement">Appartement</option> 
-                <option value="chambre">Chambre</option>
-                <option value="maison">Maison</option>
-                <option value="terrain">Terrain</option>
+                            <br>
+                            <label> Prix </label>
+                            <div>
+                                <input type ="number" id="prix" name="prix" min="100">
+                            </div> 
 
-            </select>
-
-            <p>Nombre de piéce</p>
-
-            <div>
-                <input type ="number" id="nbrPiece" name="nbrPiece" required min="1">
-
-            </div> 
-
-
-            <p>Prix</p>
-            <div>
-                <input type ="number" id="nombre" name="prix" required >
-
-
-            </div> 
-
-            <p>Nom propriétaire</p>
+           <!--  <p>Nom propriétaire</p>
 
             <div>
                 <input type="text" id="proprio" name="proprio" placeholder="votre nom">
@@ -347,42 +330,54 @@ include 'entete.php';
             <div>
                 <input type="email"  required placeholder="email" id="mail" name="email" >
 
-            </div>
+            </div> -->
 
-            <p>Description</p>
-
-            <div>
-                <input type="text" id="description" name="description" placeholder="description du bien">
-            </div> 
-
-            <p>Photo</p>
+            <label> Localite </label>
 
             <div>
-                <input type="url"
-                id="image" name="photo" placeholder="saisir url" 
-                >
+                <input type="text" id="localite" name="localite" placeholder="localite du bien" >
             </div> 
 
+            <label> Description </label>
 
-            <p>date d'ajout</p>
+            <div>
+                <input type="text" id="description" name="description" placeholder="description du bien" >
+            </div> 
 
+            <label> Photo </label>
+            <div>
+              <!--   <input type="url" id="photo" name="photo" placeholder="saisir url"> -->
+
+              <input id="img" type="file" name="img" type="submit" />
+          </div> 
+
+          <!--   <input type="file" name="img"/> -->
+
+
+           <!--  <p>date d'ajout</p>
             <div>
                 <input type="date" required id="start" name="date"
 
                 min="2021-04-11" max="2022-12-31">
+            </div>  -->
 
-            </div> 
-
-            <div>
+           <!--  <div>
                 <input type="submit" name="submit"  id="submit">
 
-            </div>
+            </div> -->
 
+            <div class="form-group" style=" text-align: center;">
+                <input type="submit" class="btn-solid-reg as-button" value="AJOUTER" onclick="ajouterLogement()">
+                <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+            </div>
         </form>
     </div>
 </div> 
 
-
+<!-- <form method="post" action="index.php" enctype="multipart/form-data">
+<input type="file" name="img"/>
+<input type="submit" name="Envoyer"/>
+</form> -->
 
 
 

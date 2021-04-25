@@ -73,72 +73,100 @@ function echo_liste_logement($admin=false){
     $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
 
     try {
-        $query = "SELECT typelogement, prix, localite, photo FROM logement;";
+        $query = "SELECT typelogement, typeTransaction, prix, localite, description, photo FROM logement;";
 
         $stmt = $dbh->prepare($query);
         $stmt->execute();
         if($admin === false){
 
             while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
-                echo "<tr>\n";
+               // echo "<tr>\n";
+               // foreach ($ligne as $col_value) {
+                    // echo "<td>\n";
+                    // echo $col_value;
+                    // echo "\n</td>\n";
+              //  }
+               // echo "\n</tr>\n";
+               // foreach ($ligne as $col_value) {
+               // print_r($ligne);
+                // echo $ligne["typelogement"];
+                // echo $ligne["prix"];
+                $chain ="";
                 foreach ($ligne as $col_value) {
+                 $id ; 
+                 $chain .= '<div class="col-lg-4">';
+                 $chain .= '<div class="card" style="display:flex;">';            
+                 //  $chain .= '<img class="card-image" src="' . $ligne["photo"] . '" alt="alternative">';
+
+
+                 $chain .= ' <div class="min">
+                 <a href="' . $ligne["photo"] . '" rel="zoombox[galerie]">
+                 <img src="' . $ligne["photo"] . '"/>
+                 <h3>' . $ligne["photo"] . '</h3>
+                 </a>
+                 </div>';
+
+
+
+                 $chain .= '<div class="card-body">';
+                 $chain .= '<h3 class="card-title" style= "
+                 margin-bottom: 0.75rem;
+                 text-align: left;
+                 font-weight: bold;
+                 ">' . $ligne["typelogement"] . '</h3>';
+
+                 $chain .= '<h4>' . $ligne["typeTransaction"] . '</h4>';
+
+                 $chain .= '<h4>' . $ligne["localite"] . '</h4>';
+
+                 $chain .= '<p>' . $ligne["prix"] . '</p>';
+
+                 $chain .= '<p>' . $ligne["description"] . '</p>';
+
+
+                 $chain .= '<label for="show-menu" class="menu-button id_input glyphicon glyphicon-remove"></label>';
+
+                 $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">VISITER</a>';
+                 $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">SUPPRIMER</a>';
+
+
+                     // echo '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">LISTE</a>';
+                  //  $chain += '</div>';
+                 $chain .= '</div></div></div>';
+             }
+             echo $chain;
+                //}
+         }
+     }
+     else{
+        $maile = null;
+        while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
+            echo "<tr>\n";
+            foreach ($ligne as $col_value) {
+                if( !(stristr($string, '@') === FALSE) ){
+                    echo "<p>lqsjdlqjsdlqjsdl</p>";
                     echo "<td>\n";
                     echo $col_value;
                     echo "\n</td>\n";
+                    echo "<td>\n";
+                    echo '<a class="delete_btn" href="#" data-id='.$col_value.'> Supprimer </a>';
+                    echo "\n</td>\n";
                 }
-                echo "\n</tr>\n";
-
-                $chain ="";
-                    $chain .= '<div class="col-lg-12">';
-                    $chain .= '<div class="card">';            
-                    $chain .= '<img class="card-image" src="images/image1.jpg" alt="alternative">';
-                    $chain .= '<div class="card-body">';
-                    $chain .= '<h4 class="card-title">' . "title" . '</h4>';
-        // chain += '<h4 class="card-title">' + "title" + '</h4>'
-                    $chain .= '<p>' . "description" . '</p>';
-                    $chain .= '</div></div></div>';
-
-                echo $chain;
             }
+            echo "\n</tr>\n";
+
+            echo $chain;
         }
-        else{
-            $maile = null;
-            while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
-                echo "<tr>\n";
-                foreach ($ligne as $col_value) {
-                    if( !(stristr($string, '@') === FALSE) ){
-                        echo "<p>lqsjdlqjsdlqjsdl</p>";
-                        echo "<td>\n";
-                        echo $col_value;
-                        echo "\n</td>\n";
-                        echo "<td>\n";
-                        echo '<a class="delete_btn" href="#" data-id='.$col_value.'> Supprimer </a>';
-                        echo "\n</td>\n";
-                    }
-                }
-                echo "\n</tr>\n";
-                
-                    // $chain ="";
-                    // $chain .= '<div class="col-lg-12">';
-                    // $chain .= '<div class="card">';            
-                    // $chain .= '<img class="card-image" src="images/image1.jpg" alt="alternative">';
-                    // $chain .= '<div class="card-body">';
-                    // $chain .= '<h4 class="card-title">' . "title" . '</h4>';
-                    // $chain .= '<p>' . "description" . '</p>';
-                    // $chain .= '</div></div></div>';
-
-                echo $chain;
-            }
-        }
-
-        $stmt->closeCursor();
-
-    } 
-    catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
-        die();
     }
-    $dbh = null;
+
+    $stmt->closeCursor();
+
+} 
+catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+}
+$dbh = null;
 }
 
 
