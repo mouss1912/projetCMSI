@@ -38,21 +38,12 @@ include 'entete.php';
                     <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">Louer</a>
+                    <a class="nav-link page-scroll" href="#pricing">Louer ou Acheter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">Acheter</a>
+                    <a class="nav-link page-scroll" href="#pricing">Faire Gérer</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">Vendre</a>
 
-                </li>
-                
-
-                <!-- <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Request</a>
-                </li>
-            -->
             <!-- Dropdown Menu -->          
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle page-scroll" href="listeLogement.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
@@ -137,15 +128,6 @@ include 'entete.php';
 </header> 
 <!-- end of header -->
 
-<?php
-           // if( isset($_SESSION["admin"]) ){
-?>
-              <!--   <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#admin_add_adh">Admin</a>
-                </li> -->
-                <?php
-         //   }
-                ?>
 
                 <!-- Customers -->
                 <div class="slider-1">
@@ -249,7 +231,7 @@ include 'entete.php';
                                     </ul>
                                     <?php
                                     if( isset($_SESSION["connecter"]) ){
-                                        echo '<a id="btn_connexion" class="btn-solid-lg"  href="https://drive.google.com/folderview?id=0B7pMzlYXZy3PYVhpRVhfRUN1Szg" onclick="window.open(this.href); return false;">DRIVE</a>';
+                                        echo '<a id="btn_connexion" class="btn-solid-lg"  href="https://drive.google.com/drive/folders/1MkSdTgGy_k7B3_gA98lFPy2Q5CNynM5h?usp=sharing" onclick="window.open(this.href); return false;">DRIVE</a>';
                                     }
                                     else{
                                         echo '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">DRIVE</a>';

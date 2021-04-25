@@ -80,65 +80,60 @@ function echo_liste_logement($admin=false){
         if($admin === false){
 
             while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
-               // echo "<tr>\n";
-               // foreach ($ligne as $col_value) {
-                    // echo "<td>\n";
-                    // echo $col_value;
-                    // echo "\n</td>\n";
-              //  }
-               // echo "\n</tr>\n";
-               // foreach ($ligne as $col_value) {
-               // print_r($ligne);
-                // echo $ligne["typelogement"];
-                // echo $ligne["prix"];
+
                 $chain ="";
                 foreach ($ligne as $col_value) {
-                 $id ; 
-                 $chain .= '<div class="col-lg-4">';
-                 $chain .= '<div class="card" style="display:flex;">';            
-                 //  $chain .= '<img class="card-image" src="' . $ligne["photo"] . '" alt="alternative">';
+                   $id ; 
+                   $chain .= '<div class="col-lg-4">';
+                   $chain .= '<div class="card" style="display:flex;">';            
+
+                   $chain .= ' <div class="min">
+                   <a href="' . $ligne["photo"] . '" rel="zoombox[galerie]">
+                   <img src="' . $ligne["photo"] . '"/>
+                   <h3>' . $ligne["photo"] . '</h3>
+                   </a>
+                   </div>';
+
+                   $chain .= '<div class="card-body">';
+
+                   $chain .= '<h4 class="card-title" style= "
+                   margin-bottom: 0.75rem; font-weight: bold; text-align: center">'. $ligne["typeTransaction"] .' : ' . $ligne["typelogement"] . '</h4>';
 
 
-                 $chain .= ' <div class="min">
-                 <a href="' . $ligne["photo"] . '" rel="zoombox[galerie]">
-                 <img src="' . $ligne["photo"] . '"/>
-                 <h3>' . $ligne["photo"] . '</h3>
-                 </a>
-                 </div>';
+                   $chain .= '<h6 style = "text-align : center">' . $ligne["localite"] . '</h6> </br>';
+
+                   $chain .= '<h3 style = "text-align : center">' . $ligne["prix"] .'fcfa'. '</h3>';    
+
+                   $chain .= '<p>' . $ligne["description"] . '</p>';
 
 
+                   $chain .= '<label for="show-menu" class="menu-button id_input glyphicon glyphicon-remove"></label>';
 
-                 $chain .= '<div class="card-body">';
-                 $chain .= '<h3 class="card-title" style= "
-                 margin-bottom: 0.75rem;
-                 text-align: left;
-                 font-weight: bold;
-                 ">' . $ligne["typelogement"] . '</h3>';
+                   $chain.= '<div class="form-group row">';
 
-                 $chain .= '<h4>' . $ligne["typeTransaction"] . '</h4>';
+                   $chain.= '<div class="col-md-6">';
+                 // $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">VISITER</a>';
+                   $chain .= '<button type="button" class="btn btn-primary btn-sm">Visiter</button>';
+                   $chain.= '</div>';
 
-                 $chain .= '<h4>' . $ligne["localite"] . '</h4>';
+                   $chain.= '<div class="col-md-6">';
 
-                 $chain .= '<p>' . $ligne["prix"] . '</p>';
-
-                 $chain .= '<p>' . $ligne["description"] . '</p>';
-
-
-                 $chain .= '<label for="show-menu" class="menu-button id_input glyphicon glyphicon-remove"></label>';
-
-                 $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">VISITER</a>';
-                 $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">SUPPRIMER</a>';
+                // $chain .=' <button class="btn"><i class="fa fa-trash"></i></button>';
+                  // $chain .= '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="">SUPPRIMER</a>';
+                   $chain .= '<button type="button" class="btn btn-secondary btn-sm">Supprimer</button>';
+                   $chain.= '</div>';
+                   $chain.= '</div>';
 
 
                      // echo '<a id="btn_connexion" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-3">LISTE</a>';
                   //  $chain += '</div>';
-                 $chain .= '</div></div></div>';
-             }
-             echo $chain;
+                   $chain .= '</div></div></div>';
+               }
+               echo $chain;
                 //}
-         }
-     }
-     else{
+           }
+       }
+       else{
         $maile = null;
         while( $ligne = $stmt->fetch(PDO::FETCH_ASSOC) ){
             echo "<tr>\n";

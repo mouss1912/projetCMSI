@@ -35,7 +35,7 @@ include 'entete.php';
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#services">Louer</a>
@@ -182,10 +182,10 @@ include 'entete.php';
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Logement</h2>
-                <p class="p-heading p-large"> Liste des logements (on sépare ou pas)</p>
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
+                <h2>Nos Logements</h2>
+                <p class="p-heading p-large"> Liste des logements disponibles</p>
+            </div> 
+        </div> 
         <div class="row">
             <?php 
                     // echo '<div class="col-lg-12">';
@@ -219,7 +219,7 @@ include 'entete.php';
 
 
 <!-- Boutton pour ajouter un bien -->
-<a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6">AJOUTER UN BIEN</a>
+<a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center;">AJOUTER UN BIEN</a>
 <!--   ########################. details-lightbox-5 #############################-->
 <!-- vérification du fichier image uploader -->
 
@@ -251,12 +251,15 @@ while($file = readdir($dir)){
     $ext = strtolower(substr($file,-3));
     if(in_array($ext,$allow_ext)){
         ?>
-        <div class="min">
-            <a href="images/<?php echo $file; ?>" rel="zoombox[galerie]">
-                <img src="images/min/<?php echo $file; ?>"/>
-                <h3><?php echo $file; ?></h3>
+       <!--  <div class="min">
+            <a href="images/<?php 
+            //echo $file; ?>" rel="zoombox[galerie]">
+                <img src="images/min/<?php
+                // echo $file; ?>"/>
+                <h3><?php 
+                //echo $file; ?></h3>
             </a>
-        </div>
+        </div> -->
         <?php
     }
 }
