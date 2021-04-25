@@ -124,7 +124,7 @@ include 'entete.php';
                 <div class="col-lg-12">
                     <div class="breadcrumbs">
                     <h1>
-ghjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj;
+ghjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjll;
                     </h1>
                         <a href="index.php">Home</a><i class="fa fa-angle-double-right"></i><span>Politique de confidentialité</span>
                     </div> 
