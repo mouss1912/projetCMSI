@@ -2,9 +2,9 @@
 session_start();
 include("../../vars.php");
 
-
-if( array_key_exists('id', $_POST) && isset($_SESSION["connecter"]) && $_SESSION["connecter"] ){
-	del_logement($_POST["id"]);
+if( array_key_exists('idLog', $_POST) && isset($_SESSION["connecter"]) && $_SESSION["connecter"] ){
+	del_logement($_POST["idLog"]);
+	echo json_encode(["delid" => $_POST["idLog"]]);
 
 }
 else{
@@ -13,7 +13,7 @@ else{
 }
 
 
-function del_logement($id){
+function del_logement($idLog){
 	global $USER_DB, $PASSWORD_DB, $NAME_DB, $HOST_DB;
 
 	$user       = $USER_DB;
@@ -23,19 +23,23 @@ function del_logement($id){
 
 	$dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
 
+	$idLog  = $_POST['idLog'];
 
 	try {
-		$query = "DELETE id FROM logement;";
+		$q = "DELETE FROM logement WHERE idLog=$idLog ;";
+
+		$stmt = $dbh->prepare($q);
+		$stmt->execute();
 
 	} 
 	catch (PDOException $e) {
-		print "Erreur !: " . $e->getMessage() . "<br/>";
+		echo json_encode(["error" => $e->getMessage(), "valider" => false]);
 		die();
 	}
-        // Fermeture connexion
+
 	$dbh = null;
+
 
 }
 
 ?>
-

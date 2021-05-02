@@ -3,6 +3,7 @@ session_start();
 include 'entete.php';
 ?>
 
+
 <!-- Debut du corps du site -->
 <body data-spy="scroll" data-target=".fixed-top">
 
@@ -218,8 +219,11 @@ include 'entete.php';
 <!-- end of services -->
 
 
+
+
+
 <!-- Boutton pour ajouter un bien -->
-<a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center;">AJOUTER UN BIEN</a>
+<a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a>
 <!--   ########################. details-lightbox-5 #############################-->
 <!-- vérification du fichier image uploader -->
 
@@ -351,8 +355,11 @@ if(isset($erreur)){
             <div>
               <!--   <input type="url" id="photo" name="photo" placeholder="saisir url"> -->
 
-              <input id="img" type="file" name="img" type="submit" />
+              <input id="img" type="file" name="img" type="submit" multiple/>
           </div> 
+
+        <!--   <input name="fichier[]" type="file" value="Choisir" id="fichier_a_uploader" multiple /> -->
+
 
           <!--   <input type="file" name="img"/> -->
 

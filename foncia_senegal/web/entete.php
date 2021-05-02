@@ -45,6 +45,11 @@ require("../functions.php");
     <script type="text/javascript" src="js/inscription.js"></script>
     <script type="text/javascript" src="js/logement.js"></script>
 
+ <!-- Pour les imgaes uploader -->
+    <script type="text/javascript" src="zoombox/jquery.js"></script>
+    <script type="text/javascript" src="zoombox/zoombox.js"></script> 
+    <link rel="stylesheet" type="text/css" href="theme/style.css" /> 
+    <link href="zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
 
 
     <?php 
@@ -89,10 +94,5 @@ require("../functions.php");
     <!-- Favicon  -->
     <!-- <link rel="icon" href="images/favicon.png"> -->
     
-    <!-- Pour les imgaes uploader -->
-    <script type="text/javascript" src="zoombox/jquery.js"></script>
-    <script type="text/javascript" src="zoombox/zoombox.js"></script> 
-    <link rel="stylesheet" type="text/css" href="theme/style.css" /> 
-    <link href="zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
 
 </head>

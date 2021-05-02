@@ -38,7 +38,7 @@ include 'entete.php';
                     <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#pricing">Louer ou Acheter</a>
+                    <a class="nav-link page-scroll" href="#pricing">Transaction</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#pricing">Faire Gérer</a>
@@ -407,7 +407,8 @@ include 'entete.php';
 
 
 <!-- Pricing -->
-<div id="pricing" class="cards-2">
+<div id="services" class="cards-2">
+<!-- <div id="pricing" class="cards-2"> -->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
