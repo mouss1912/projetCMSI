@@ -17,6 +17,14 @@ if(array_key_exists('localite', $_POST)){
     $description = $_POST['description'];
     $prix  = $_POST['prix'];
     $typeTransaction  = $_POST['typeTransaction'];
+
+    $nomProprio  = $_POST['nomProprio'];
+    $prenomProprio  = $_POST['prenomProprio'];
+
+
+    $email  = $_POST['email'];
+    $date  = $_POST['date'];
+
     print_r($_POST);
     $img  = $_POST['photo'];
     
@@ -29,7 +37,7 @@ if(array_key_exists('localite', $_POST)){
     echo "Je suis dans logement .php";
 
     try {
-        $q = "INSERT INTO logement (`localite`,`description`,`prix`,`typeLogement`,`typeTransaction` ,`photo`) values('$localite','$description','$prix','$typeLogement','$typeTransaction' ,'$dos$img');";
+        $q = "INSERT INTO logement (`localite`,`description`,`prix`,`typeLogement`,`typeTransaction`,`nomProprio`, `prenomProprio`,`email`, `date`,`photo`) values('$localite','$description','$prix','$typeLogement','$typeTransaction', '$nomProprio', '$prenomProprio','$email', '$date','$dos$img');";
 
         echo "Je suis dans le try de logement.php";
 
@@ -44,9 +52,7 @@ if(array_key_exists('localite', $_POST)){
 
     } 
     catch (PDOException $e) {
-            //print "Erreur !: " . $e->getMessage() . "<br/>";
         echo json_encode(["error" => $e->getMessage(), "valider" => false]);
-                //echo "Je suis dans le catch";
 
         die();
     }

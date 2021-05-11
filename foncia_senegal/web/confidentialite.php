@@ -5,6 +5,7 @@ session_start();
 include 'entete.php';
 ?>
 
+
 <!-- Debut du corps du site -->
 <body data-spy="scroll" data-target=".fixed-top">
 
@@ -17,8 +18,6 @@ include 'entete.php';
         </div>
     </div>
     <!-- end of preloader -->
-    
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <!-- Text Logo - Use this if you don't have a graphic logo -->
@@ -37,16 +36,13 @@ include 'entete.php';
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link page-scroll" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#pricing">Transaction</a>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">Louer</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Acheter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#request">Vendre</a>
+                    <a class="nav-link page-scroll" href="index.php#services">Faire Gérer</a>
                 </li>
 
                 <!-- Dropdown Menu -->          
@@ -63,7 +59,7 @@ include 'entete.php';
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                    <a class="nav-link dropdown-toggle page-scroll" href="index.php#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="term.php"><span class="item-text">Terms Conditions</span></a>
                         <div class="dropdown-items-divide-hr"></div>
@@ -73,13 +69,13 @@ include 'entete.php';
                 <!-- end of dropdown menu -->
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    <a class="nav-link page-scroll" href="index.php#contact">Contact</a>
                 </li>
                 <?php
                 if( isset($_SESSION["admin"]) ){
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#admin_add_adh">Admin</a>
+                        <a class="nav-link page-scroll" href="index.php#admin_add_adh">Admin</a>
                     </li>
                     <?php
                 }
@@ -103,18 +99,33 @@ include 'entete.php';
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
 
-
     <!-- Header -->
-    <header id="header" class="ex-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Politique de confidentialité</h1>
-                </div>
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1><span class="turquoise"> Sen </span> Foncia </h1>
+
+                        </div> 
+                    </div> 
+                </div> 
             </div> 
+
         </div> 
     </header> 
-    <!-- end of header -->
+
+    <!-- Header -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="text-align: center;">
+                <h2><em> Politique de confidentialité </em></h2>
+            </div> 
+        </div> 
+    </div> 
+<!-- end of header -->
+
 
 
     <!-- Breadcrumbs -->

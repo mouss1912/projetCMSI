@@ -2,9 +2,6 @@
   overflow: auto;
   height: 500px;
   width: 100%;
-  /*margin-right: 50em;*/
-  margin-left: 50em;
-
 }
 
 @import "compass/css3";
@@ -45,7 +42,7 @@ table th.last {
 }
 
 .searchTerm {
-  width: 69%;
+  width: 100%;
   border: 3px solid #00B4CC;
   border-right: none;
   padding: 5px;
@@ -57,13 +54,8 @@ table th.last {
 
 .searchTerm:focus{
   color: #00B4CC;
-  width: 69%;
-
 }
-/*
-#myTable{
-  width: 952px;
-}*/
+
 .searchButton {
   width: 40px;
   height: 36px;

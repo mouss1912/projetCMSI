@@ -8,6 +8,7 @@ class Img{
 		$dimension=getimagesize($img);
 		// On cré une image à partir du fichier récup
 		if(substr(strtolower($img),-4)==".jpg"){$image = imagecreatefromjpeg($img); }
+		else if(substr(strtolower($img),-4)==".jpeg"){$image = imagecreatefromjpeg($img); }
 		else if(substr(strtolower($img),-4)==".png"){$image = imagecreatefrompng($img); }
 		else if(substr(strtolower($img),-4)==".gif"){$image = imagecreatefromgif($img); }
 		// L'image ne peut etre redimensionne

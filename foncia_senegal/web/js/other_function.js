@@ -98,3 +98,31 @@ function filter_table() {
         }
     }
 }
+
+// Fonction de rechercher logement
+
+function filter_logement() {
+    var input, filter, logement, tr, td, i, txtValue;
+    input   = document.getElementById("myInput");
+    filter  = input.value.toUpperCase();
+    logement  = document.getElementById("myTable");
+    tr      = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        for (var e = 0; e < tr[i].getElementsByTagName("td").length; e++) {
+            td = tr[i].getElementsByTagName("td")[e];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    break;
+                } 
+                else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+}
+
