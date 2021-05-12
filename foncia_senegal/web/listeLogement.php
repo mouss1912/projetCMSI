@@ -74,6 +74,8 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
                         <a class="dropdown-item" href="term.php"><span class="item-text">Terms Conditions</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="confidentialite.php"><span class="item-text">confidentialité</span></a>
+                         <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="presentation.php"><span class="item-text">Présentation</span></a>
                     </div>
                 </li>
                 <!-- end of dropdown menu -->

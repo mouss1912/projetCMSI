@@ -61,6 +61,8 @@ include 'entete.php';
                         <a class="dropdown-item" href="term.php"><span class="item-text">Terms Conditions</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="confidentialite.php"><span class="item-text">confidentialité</span></a>
+                         <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="presentation.php"><span class="item-text">Présentation</span></a>
                     </div>
                 </li>
                 <!-- end of dropdown menu -->
@@ -440,7 +442,7 @@ include 'entete.php';
                                     <i class="fas fa-check"></i><div class="media-body">Syndic</div>
                                 </li>
                                 <li class="media">
-                                    <i class="fas fa-check"></i><div class="media-body">Estimation</div>
+                                    <i class="fas fa-times"></i><div class="media-body">Estimation</div>
                                 </li>
                                 <li class="media">
                                     <i class="fas fa-times"></i><div class="media-body">Suivi</div>
@@ -505,7 +507,7 @@ include 'entete.php';
                             <i class="fas fa-check"></i><div class="media-body">Estimation</div>
                         </li>
                         <li class="media">
-                            <i class="fas fa-times"></i><div class="media-body">Suivi</div>
+                            <i class="fas fa-check"></i><div class="media-body">Suivi</div>
                         </li>
                     </ul>
                     <div class="button-wrapper">
