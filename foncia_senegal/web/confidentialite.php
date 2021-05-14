@@ -49,13 +49,9 @@ include 'entete.php';
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle page-scroll" href="listeLogement.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Terrain</span></a>
+                        <a class="dropdown-item" href="location.php"><span class="item-text">Location</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Appartement</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Villa</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Chambre</span></a>
+                        <a class="dropdown-item" href="vente.php"><span class="item-text">Vente</span></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

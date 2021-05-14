@@ -13,9 +13,7 @@
         </div> 
         <div class="row">
             <div class="col-lg-6">
-
-              <!-- Contact Form -->
-              <form id="contactForm" data-toggle="validator" data-focus="false" >
+              <form id="contactForm" data-toggle="validator" data-focus="false">
                 <div class="form-group">
                     <input type="text" class="form-control-input" id="cname" required>
                     <label class="label-control" for="cname">Nom</label>
@@ -32,77 +30,72 @@
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group checkbox">
-                    <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>J'accepte les <a href="terms-conditions.html">conditions d'utilisation</a> 
+                    <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>I have read and agree with Evolo's stated <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-conditions.html">Terms Conditions</a> 
                     <div class="help-block with-errors"></div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="form-control-submit-button">ENVOYER MESSAGE</button>
+                    <button type="submit" class="form-control-submit-button">ENVOYE MESSAGE</button>
                 </div>
                 <div class="form-message">
                     <div id="cmsgSubmit" class="h3 text-center hidden"></div>
                 </div>
             </form>
-            <!-- end of contact form -->
-
         </div> 
-    </div> 
-</div> 
-</div> 
 
-
-
-
- <!-- <div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="footer-col">
-                    <h4>A propos FONCIA</h4>
-                    <p>XXXXXXXX .. .. ;</p>
-                </div>
-            </div> 
-            <div class="col-md-4">
-                <div class="footer-col middle">
-                    <h4>Publier vos projet immobillier à venir</h4>
-                    <ul class="list-unstyled li-space-lg">
-                        <li class="media">
-                            <i class="fas fa-square"></i>
-                            <div class="media-body">Construction d'une cité à Saly <a class="turquoise" href="https://www.neosens-immobilier.com/programmes/7/saly-senegal-afrique/">https://www.neosens-immobilier.com/programmes/7/saly-senegal-afrique/</a></div>
-                        </li>
-                    </ul>
-                </div>
-            </div> 
-            <div class="col-md-4">
-                <div class="footer-col last">
-                    <h4>Social Media</h4>
-                    <span class="fa-stack">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
-                    </a>
-                </span>
+        <div class="col-lg-6">
+            <div class="footer-col middle">
+                <h4>Publier vos projet immobillier à venir</h4>
+                <ul class="list-unstyled li-space-lg">
+                    <li class="media">
+                        <i class="fas fa-square"></i>
+                        <div class="media-body">Construction d'une cité à Saly <a class="turquoise" href="https://www.neosens-immobilier.com/programmes/7/saly-senegal-afrique/">https://www.neosens-immobilier.com/programmes/7/saly-senegal-afrique/</a></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col last">
+                <h4>Social Media</h4>
                 <span class="fa-stack">
-                    <a href="#your-link">
-                        <i class="fas fa-circle fa-stack-2x"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-            </div> 
-        </div> 
-    </div> 
-</div> 
-</div> 
--->
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                </a>
+            </span>
+            <span class="fa-stack">
+                <a href="#your-link">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x"></i>
+                </a>
+            </span>
+        </div> <br>
+        <h1 class="p-small">Copyright © DUCMSI - Arame, Linh, Moussa </h1>
 
-<!-- Copyright -->
-<!-- <div class="copyright">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="p-small">Copyright © DUCMSI - Arame, Linh, Moussa </p>
-            </div> 
-        </div> 
+        <?php
+        // function envoi_message(){  
+        //     $message = ''; 
+        //     if (!empty($_POST)) { 
+        //         $message = " Merci Votre message est  envoyé : ". "Nom = ".$_POST['cname'].", ". "Email = " .$_POST['cemail'].", ". "Message = ".$_POST['cmessage'];
+        //     } else { 
+        //         $message = 'aucune donnée envoyée';
+        //     }
+
+
+
+        // //echo " <h3 >  $message </h3> ";
+        //     $destinataire = "moussasamb1912@gmail.com";
+        //     $sujetMessage =  "Prise de contact";
+        //     mail($destinataire, $sujetMessage, $message);
+
+        // // echo " <script type='text/javascript'>
+        // // alert('Merci votre message est bien envoyé');
+        // // </script>";
+            
+        // }
+        ?>
+
     </div> 
-</div>  -->
+</div> 
+</div> 
+</div> 
+
 
 <!-- Scripts -->
 <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
@@ -130,9 +123,7 @@
         //Pour gerer la liste d'image sans texte
         $(".text_none").html(".");
         $(".text_none").css("opacity","0");//couleur en blanc
-
-
-</script>
-<script type="text/javascript" src="js/other_function.js"></script>
-<script type="text/javascript" src="js/suppression.js"></script>
-
+    </script>
+    <script type="text/javascript" src="js/other_function.js"></script>
+    <script type="text/javascript" src="js/suppression.js"></script>
+    <script type="text/javascript" src="js/visite.js"></script>

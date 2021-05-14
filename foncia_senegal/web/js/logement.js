@@ -18,10 +18,14 @@ function ajouterLogement(){
      var localite = $("#localite").val();
      var description = $("#description").val();
      var prix = $("#prix").val();
-     var typeTransaction = $("#typeTransaction").val();
+     //var typeTransaction = $("#typeTransaction").val();
 
-     var nomProprio = $("#nomProprio").val();
-      var prenomProprio = $("#prenomProprio").val();
+    var typeTransaction = $("#typeTransaction:checked").val();
+
+
+    var nomProprio = $("#nomProprio").val();
+    var prenomProprio = $("#prenomProprio").val();
+    var nbrePiece = $("#nbrePiece").val();
 
      var email = $("#email").val();
      var date = $("#date").val();
@@ -32,7 +36,7 @@ function ajouterLogement(){
      console.log("img");
      if(localite != "" ){
       console.log(img);
-      $.post(url, {localite:localite, description:description, prix : prix, typeLogement : typeLogement , typeTransaction : typeTransaction, nomProprio : nomProprio, prenomProprio : prenomProprio, email : email, date : date, photo : img}, 
+      $.post(url, {localite:localite, description:description, prix : prix, typeLogement : typeLogement , typeTransaction : typeTransaction, nomProprio : nomProprio, prenomProprio : prenomProprio, nbrePiece : nbrePiece ,email : email, date : date, photo : img}, 
         function(data) {
           console.log("inin")
 

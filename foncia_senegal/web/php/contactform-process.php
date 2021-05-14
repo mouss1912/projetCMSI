@@ -29,8 +29,8 @@ else {
     $terms = $_POST["terms"];
 }
 
-$EmailTo = "association.astico@gmail.com";
-$Subject = "Nouveau message du site astico";
+$EmailTo = "moussasamb1912@gmail.com";
+$Subject = "Nouveau message du site Sen Foncia";
 
 // prepare email body text
 $Body = "";

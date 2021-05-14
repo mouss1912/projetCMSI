@@ -82,9 +82,9 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
                 <?php
                 if( isset($_SESSION["admin"]) ){
                     ?>
-                   <!--  <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.php#admin_add_adh">Admin</a>
-                    </li> -->
+                    </li>
                     <?php
                 }
                 ?>
@@ -130,41 +130,37 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
 
     <div class="slider-container">
         <div class="swiper-container image-slider">
-            <div class="swiper-wrapper" style="margin:2px;">
+            <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image4.jpg" alt="alternative">
                     </div>
                 </div>
-                
-                <div class="swiper-slide" >
+                <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image8.jpg" alt="alternative">
                     </div>
                 </div>
-                
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
                 </div>
-                <!-- <div class="swiper-slide">
-                    <div class="image-container">
-                        <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
-                    </div>
-                </div>
-                <p> </p>
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
                     </div>
                 </div>
-                <p> </p>
+                <div class="swiper-slide">
+                    <div class="image-container">
+                        <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
+                    </div>
+                </div>
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
-                </div> -->
+                </div>
             </div> 
         </div> 
     </div> 
@@ -229,18 +225,19 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
         </div>
     </div>
 
+
     <!-- Liste des logements : A reprendre  -->
     <div id="services" class="cards-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2> <em> Nos Logements </em></h2>
+                    <h2> <em> Nos Logements en vente </em></h2>
                     <p class="p-heading p-large"> Liste des logements disponibles</p>
                 </div> 
             </div> 
             <div class="row">
                 <?php
-                echo_liste_logement();
+                echo_liste_logement_vente();
                 ?>
             </div> 
         </div> 
@@ -248,12 +245,10 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
 
 
     <!-- Boutton pour ajouter un bien -->
-
-
     <?php
     if( isset($_SESSION["admin"]) ){
         ?>
-      <!--   <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a> -->
+        <!-- <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a> -->
         <?php
     }
     ?>
@@ -425,14 +420,6 @@ if(isset($erreur)){
     </form>
 </div>
 </div> 
-
-
-<!-- <label> Photo </label>
-<div>
-  <input id="img" type="file" name="img" type="submit" multiple/>
-</div>  -->
-
-<!--   <input name="fichier[]" type="file" value="Choisir" id="fichier_a_uploader" multiple /> -->
 
 
 <!-- Contact -->

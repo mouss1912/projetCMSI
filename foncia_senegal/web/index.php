@@ -46,13 +46,9 @@ include 'entete.php';
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle page-scroll" href="listeLogement.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Logement</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Terrain</span></a>
+                        <a class="dropdown-item" href="location.php"><span class="item-text">Location</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Appartement</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Villa</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="listeLogement.php"><span class="item-text">Chambre</span></a>
+                        <a class="dropdown-item" href="vente.php"><span class="item-text">Vente</span></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -61,7 +57,7 @@ include 'entete.php';
                         <a class="dropdown-item" href="term.php"><span class="item-text">Terms Conditions</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="confidentialite.php"><span class="item-text">confidentialité</span></a>
-                         <div class="dropdown-items-divide-hr"></div>
+                        <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="presentation.php"><span class="item-text">Présentation</span></a>
                     </div>
                 </li>
@@ -71,18 +67,18 @@ include 'entete.php';
                     <a class="nav-link page-scroll" href="#contact">Contact</a>
                 </li>
                 <?php
-                if( isset($_SESSION["admin"]) ){
+                //if( isset($_SESSION["admin"]) ){
                     ?>
-                    <li class="nav-item">
+                  <!--   <li class="nav-item">
                         <a class="nav-link page-scroll" href="#admin_add_adh">Admin</a>
-                    </li>
+                    </li> -->
                     <?php
-                }
+                //}
                 ?>
             </ul>
             <span class="nav-item social-icons">
                 <span class="fa-stack">
-                    <a href="">
+                    <a href="https://www.facebook.com/moussa.samb.1800">
                         <i class="fas fa-circle fa-stack-2x facebook"></i>
                         <i class="fab fa-facebook-f fa-stack-1x"></i>
                     </a>
@@ -316,9 +312,6 @@ include 'entete.php';
 </div> 
 </div> 
 <!-- end of details lightbox 2 -->
-<!-- end of details lightboxes -->
-
-
 
 
 <!-- details-lightbox-3 -->
@@ -622,6 +615,7 @@ include 'entete.php';
         </span> 
     </div> 
 </div> 
+</div>
 <!-- end of about -->
 
 

@@ -20,6 +20,7 @@ if(array_key_exists('localite', $_POST)){
 
     $nomProprio  = $_POST['nomProprio'];
     $prenomProprio  = $_POST['prenomProprio'];
+    $nbrePiece  = $_POST['nbrePiece'];
 
 
     $email  = $_POST['email'];
@@ -37,7 +38,7 @@ if(array_key_exists('localite', $_POST)){
     echo "Je suis dans logement .php";
 
     try {
-        $q = "INSERT INTO logement (`localite`,`description`,`prix`,`typeLogement`,`typeTransaction`,`nomProprio`, `prenomProprio`,`email`, `date`,`photo`) values('$localite','$description','$prix','$typeLogement','$typeTransaction', '$nomProprio', '$prenomProprio','$email', '$date','$dos$img');";
+        $q = "INSERT INTO logement (`localite`,`description`,`prix`,`typeLogement`,`typeTransaction`,`nomProprio`, `prenomProprio`, `nbrePiece`,`email`, `date`,`photo`) values('$localite','$description','$prix','$typeLogement','$typeTransaction', '$nomProprio', '$prenomProprio','$nbrePiece','$email', '$date','$dos$img');";
 
         echo "Je suis dans le try de logement.php";
 

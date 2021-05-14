@@ -82,9 +82,9 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
                 <?php
                 if( isset($_SESSION["admin"]) ){
                     ?>
-                   <!--  <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link page-scroll" href="index.php#admin_add_adh">Admin</a>
-                    </li> -->
+                    </li>
                     <?php
                 }
                 ?>
@@ -130,53 +130,49 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
 
     <div class="slider-container">
         <div class="swiper-container image-slider">
-            <div class="swiper-wrapper" style="margin:2px;">
+            <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image4.jpg" alt="alternative">
                     </div>
                 </div>
-                
-                <div class="swiper-slide" >
+                <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image8.jpg" alt="alternative">
                     </div>
                 </div>
-                
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
                 </div>
-                <!-- <div class="swiper-slide">
-                    <div class="image-container">
-                        <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
-                    </div>
-                </div>
-                <p> </p>
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
                     </div>
                 </div>
-                <p> </p>
+                <div class="swiper-slide">
+                    <div class="image-container">
+                        <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
+                    </div>
+                </div>
                 <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
-                </div> -->
+                </div>
             </div> 
         </div> 
     </div> 
     <!-- end of image slider -->
 
-    <!-- Customers -->
+   <!-- Customers -->
     <div class="filtreLogement">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="slider-container">
-                     <form action="listeLogement.php" method="post" id="formu">
+                       <form action="listeLogement.php" method="post" id="formu">
                         <div class="form-row">
 
                             <div class="col">
@@ -229,66 +225,65 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
         </div>
     </div>
 
-    <!-- Liste des logements : A reprendre  -->
-    <div id="services" class="cards-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2> <em> Nos Logements </em></h2>
-                    <p class="p-heading p-large"> Liste des logements disponibles</p>
+
+        <!-- Liste des logements : A reprendre  -->
+        <div id="services" class="cards-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2> <em> Nos Logements en location</em></h2>
+                        <p class="p-heading p-large"> Liste des logements disponibles</p>
+                    </div> 
+                </div> 
+                <div class="row">
+                    <?php
+                    echo_liste_logement_location();
+                    ?>
                 </div> 
             </div> 
-            <div class="row">
-                <?php
-                echo_liste_logement();
-                ?>
-            </div> 
         </div> 
-    </div> 
 
 
-    <!-- Boutton pour ajouter un bien -->
-
-
-    <?php
+        <!-- Boutton pour ajouter un bien -->
+        <?php
     if( isset($_SESSION["admin"]) ){
         ?>
-      <!--   <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a> -->
+       <!--  <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a> -->
         <?php
     }
     ?>
-     <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a>
-    <!--   ########################. details-lightbox-5 #############################-->
-    <!-- vérification du fichier image uploader -->
+    <a id="btn_ajout" class="btn-solid-lg popup-with-move-anim" href="#details-lightbox-6" style="text-align: center; margin-left:50%;">AJOUTER UN BIEN</a>
+        <!--   ########################. details-lightbox-5 #############################-->
+        <!-- vérification du fichier image uploader -->
 
-    <?php
-    if(!empty($_FILES)){
-        require("imgClass.php");
-        $img = $_FILES['img'];
-        $ext = strtolower(substr($img['name'],-3));
-        $allow_ext = array("jpg","jpeg",'png','gif');
-        if(in_array($ext,$allow_ext)){
-            move_uploaded_file($img['tmp_name'],"images/".$img['name']);
-            Img::creerMin("images/".$img['name'],"images/min",$img['name'],315,212);
-            Img::convertirJPG("images/".$img['name']);
+        <?php
+        if(!empty($_FILES)){
+            require("imgClass.php");
+            $img = $_FILES['img'];
+            $ext = strtolower(substr($img['name'],-3));
+            $allow_ext = array("jpg","jpeg",'png','gif');
+            if(in_array($ext,$allow_ext)){
+                move_uploaded_file($img['tmp_name'],"images/".$img['name']);
+                Img::creerMin("images/".$img['name'],"images/min",$img['name'],315,212);
+                Img::convertirJPG("images/".$img['name']);
+            }
+            else{
+                $erreur = "Votre fichier n'est pas une image";
+            }
         }
-        else{
-            $erreur = "Votre fichier n'est pas une image";
-        }
-    }
 
-    ?>
+        ?>
 
 
-    <!-- recupération des images dans le dossier min -->
-    <?php
-    $dos = "images/min";
-    $dir = opendir($dos);
-    while($file = readdir($dir)){
-        $allow_ext = array("jpg","jpeg",'png','gif');
-        $ext = strtolower(substr($file,-3));
-        if(in_array($ext,$allow_ext)){
-            ?>
+        <!-- recupération des images dans le dossier min -->
+        <?php
+        $dos = "images/min";
+        $dir = opendir($dos);
+        while($file = readdir($dir)){
+            $allow_ext = array("jpg","jpeg",'png','gif');
+            $ext = strtolower(substr($file,-3));
+            if(in_array($ext,$allow_ext)){
+                ?>
        <!--  <div class="min">
             <a href="images/<?php 
             //echo $file; ?>" rel="zoombox[galerie]">
@@ -350,89 +345,82 @@ if(isset($erreur)){
                 <div class="col">
                   <label for="typeLogement">Type de logement</label></br>
                   <select class="custom-select custom-select-lg" name="typeLogement" id="typeLogement" required>
-                     <option selected>Type de bien</option>
-                     <option value="appartement">Appartement</option> 
-                     <option value="chambre">Chambre</option>
-                     <option value="maison">Maison</option>
-                     <option value="terrain">Terrain</option>
-                 </select>
-             </div>
+                   <option selected>Type de bien</option>
+                   <option value="appartement">Appartement</option> 
+                   <option value="chambre">Chambre</option>
+                   <option value="maison">Maison</option>
+                   <option value="terrain">Terrain</option>
+               </select>
+           </div>
 
-             <div class="form-group">
-                <label for="nomProprio">Nom propriétaire</label>
-                <input type="text" class="form-control" id="nomProprio" placeholder="nom du propretaire">
-            </div>
-
-            <div class="form-group">
-                <label for="prenomProprio">Prenom propriétaire</label>
-                <input type="text" class="form-control" id="prenomProprio" placeholder="prenom du propretaire">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Courriel</label>
-                <input type="text" class="form-control" id="email"  name="email" placeholder="Tex@gmail.com">
-            </div>
-
-            <div class="form-group">
-                <label for="localite">Localite</label>
-                <input type="text" class="form-control" id="localite"  name="localite" placeholder="localite du bien">
-            </div>
-
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" name="texte" id="description" name="description" placeholder="description du bien"  onKeyDown="limiteur();" onKeyUp="limiteur();"></textarea>
-                <br>
-                Il vous reste <input readonly type=text name="indicateur" size="3" maxlength=3 value="50"> caractères.
-
-            </div>
-
-            <div class="form-group">
-                <label for="prix">Prix</label>
-                <input type="number" class="form-control" id="prix"  name="prix" min="10000" >
-            </div>
-
-            <div class="col">
-                <label for="nbrePiece">Nombre de piéce</label></br>
-                <select class="custom-select custom-select-lg" name="nbrePiece" id="nbrePiece">
-                 <option selected>Nombre de piéce </option>
-                 <option value="0"> 0</option> 
-                 <option value="1"> 1 </option> 
-                 <option value="2"> 2 </option>
-                 <option value="3"> 3 </option>
-                 <option value="4"> 4 </option>
-                 <option value="5"> 5 </option> 
-                 <option value="6"> 6 </option>
-                 <option value="7"> 7 </option>
-                 <option value="8"> 8 </option>
-             </select>
-         </div>
-
-
-         <div class="form-group">
-            <label for="date">Date d'ajout</label>
-            <input type="date" class="form-control" id="date" name="date" min="2021-05-12" max="2022-12-31">
+           <div class="form-group">
+            <label for="nomProprio">Nom propriétaire</label>
+            <input type="text" class="form-control" id="nomProprio" placeholder="nom du propretaire">
         </div>
 
         <div class="form-group">
-            <label for="img">Photo</label>
-            <input type="file" class="form-control" id="img" name="img" type="submit" multiple>
+            <label for="prenomProprio">Prenom propriétaire</label>
+            <input type="text" class="form-control" id="prenomProprio" placeholder="prenom du propretaire">
         </div>
 
-        <div class="form-group" style=" text-align: center;">
-            <input type="submit" class="btn-solid-reg as-button" value="AJOUTER" onclick="ajouterLogement()">
-            <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+        <div class="form-group">
+            <label for="email">Courriel</label>
+            <input type="text" class="form-control" id="email"  name="email" placeholder="Tex@gmail.com">
         </div>
-    </form>
+
+        <div class="form-group">
+            <label for="localite">Localite</label>
+            <input type="text" class="form-control" id="localite"  name="localite" placeholder="localite du bien">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" name="texte" id="description" name="description" placeholder="description du bien"  onKeyDown="limiteur();" onKeyUp="limiteur();"></textarea>
+            <br>
+            Il vous reste <input readonly type=text name="indicateur" size="3" maxlength=3 value="50"> caractères.
+
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Prix</label>
+            <input type="number" class="form-control" id="prix"  name="prix" min="10000" >
+        </div>
+
+        <div class="col">
+            <label for="nbrePiece">Nombre de piéce</label></br>
+            <select class="custom-select custom-select-lg" name="nbrePiece" id="nbrePiece">
+               <option selected>Nombre de piéce </option>
+               <option value="0"> 0</option> 
+               <option value="1"> 1 </option> 
+               <option value="2"> 2 </option>
+               <option value="3"> 3 </option>
+               <option value="4"> 4 </option>
+               <option value="5"> 5 </option> 
+               <option value="6"> 6 </option>
+               <option value="7"> 7 </option>
+               <option value="8"> 8 </option>
+           </select>
+       </div>
+
+
+       <div class="form-group">
+        <label for="date">Date d'ajout</label>
+        <input type="date" class="form-control" id="date" name="date" min="2021-05-12" max="2022-12-31">
+    </div>
+
+    <div class="form-group">
+        <label for="img">Photo</label>
+        <input type="file" class="form-control" id="img" name="img" type="submit" multiple>
+    </div>
+
+    <div class="form-group" style=" text-align: center;">
+        <input type="submit" class="btn-solid-reg as-button" value="AJOUTER" onclick="ajouterLogement()">
+        <a class="btn-outline-reg mfp-close as-button" href="#screenshots">RETOUR</a>
+    </div>
+</form>
 </div>
 </div> 
 
-
-<!-- <label> Photo </label>
-<div>
-  <input id="img" type="file" name="img" type="submit" multiple/>
-</div>  -->
-
-<!--   <input name="fichier[]" type="file" value="Choisir" id="fichier_a_uploader" multiple /> -->
 
 
 <!-- Contact -->
