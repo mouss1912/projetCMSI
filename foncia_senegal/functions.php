@@ -115,7 +115,7 @@ function echo_liste_logement($admin=false){
 
         $chain.= '<div class="col-md-6">';
 
-        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect" ><i class="fas fa-cogs pr-2"
+        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim id_input_visite " data-id="'. $ligne["idLog"].'" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect"  ><i class="fas fa-cogs pr-2"
         aria-hidden="true"></i>VISITER</button> </a>';
 
         $chain.= '</div>';
@@ -215,7 +215,7 @@ function echo_liste_logement_location($admin=false){
 
         $chain.= '<div class="col-md-6">';
 
-        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect" ><i class="fas fa-cogs pr-2"
+        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim id_input_visite " data-id="'. $ligne["idLog"].'" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect"  ><i class="fas fa-cogs pr-2"
         aria-hidden="true"></i>VISITER</button> </a>';
 
         $chain.= '</div>';
@@ -315,8 +315,8 @@ function echo_liste_logement_vente($admin=false){
         $chain.= '<div class="form-group row">';
 
         $chain.= '<div class="col-md-6">';
-
-        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect" ><i class="fas fa-cogs pr-2"
+        
+        $chain .= ' <a href="#details-lightbox-7" class="popup-with-move-anim id_input_visite " data-id="'. $ligne["idLog"].'" ><button type="button" class="btn btn-outline-success btn-rounded waves-effect"  ><i class="fas fa-cogs pr-2"
         aria-hidden="true"></i>VISITER</button> </a>';
 
         $chain.= '</div>';
@@ -379,64 +379,45 @@ function echo_liste_logement_vente($admin=false){
   <div class="container">
     <div class="row">
       <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-      <div class="col-lg-8"> 
+      <div id="block_viste" class="col-lg-8"> 
         <!-- Affiché le logement en question -->
         <h5>logement</h5>
-        <?php
-        $dos = "images/min";
-        $dir = opendir($dos);
-        while($file = readdir($dir)){
-          $allow_ext = array("jpg","jpeg",'png','gif');
-          $ext = strtolower(substr($file,-3));
-          if(in_array($ext,$allow_ext)){
-            ?>
-            <div class="min">
-              <a href="images/<?php 
-              echo $file; ?>" rel="zoombox[galerie]">
-              <img src="images/min/<?php
-              echo $file; ?>"/>
-              <h3><?php 
-              echo $file; ?></h3>
-            </a>
-          </div>
-          <?php
-        }
-      }
-      ?>
-    </div>
-    <!-- Formulaire de RDV -->
-    <div class="col-lg-4">
-      <form action="rdv.php" method="post">
-        <fieldset >
 
-          <legend>Prise de rendez vous</legend>
 
-              <div class="form-group">
-                <label for="nom">Nom </label>
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="votre nom">
-              </div>
+      </div>
+      <!-- Formulaire de RDV -->
+      <div class="col-lg-4">
+        <form action="rdv.php" method="post">
+          <fieldset >
 
-              <div class="form-group">
-                <label for="prenom">Prenom </label>
-                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="votre prenom">
-              </div>
+            <legend>Prise de rendez vous</legend>
 
-              <div class="form-group">
-                <label for="telephone">Téléphone </label>
-                <input type="text" class="form-control" id="telephone" name="telephone" placeholder="votre numéro tel">
-              </div>
+            <div class="form-group">
+              <label for="nom">Nom </label>
+              <input type="text" class="form-control" id="nom" name="nom" placeholder="votre nom">
+            </div>
 
-              <div class="form-group">
-                <label for="date">Date souhaitée </label>
-                <input id="date" class="input-form" name="date" type="date" value="<?php echo date("Y-m-d") ?>">
-              </div>
+            <div class="form-group">
+              <label for="prenom">Prenom </label>
+              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="votre prenom">
+            </div>
 
-          <button type="submit" name="submit" class="btn btn-outline-success btn-rounded waves-effect"  ><i class="fas fa-calendar pr-2"
-            aria-hidden="true"></i>Valider RDV</button> 
-          </fieldset>
-        </form>
+            <div class="form-group">
+              <label for="telephone">Téléphone </label>
+              <input type="text" class="form-control" id="telephone" name="telephone" placeholder="votre numéro tel">
+            </div>
 
+            <div class="form-group">
+              <label for="date">Date souhaitée </label>
+              <input id="date" class="input-form" name="date" type="date" value="<?php echo date("Y-m-d") ?>">
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-outline-success btn-rounded waves-effect"  ><i class="fas fa-calendar pr-2"
+              aria-hidden="true"></i>Valider RDV</button> 
+            </fieldset>
+          </form>
+
+        </div> 
       </div> 
     </div> 
   </div> 
-</div> 

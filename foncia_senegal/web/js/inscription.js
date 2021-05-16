@@ -42,6 +42,7 @@ function inscrire() {
 
          if(data.length != 0){
              //  verif_connexion(true);
+             alert("inscription bien pris en compte");
                 document.location.href = "./index.php"; 
              $("#connect_error").html("");
          }

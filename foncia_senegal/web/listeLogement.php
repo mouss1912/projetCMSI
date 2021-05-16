@@ -148,7 +148,7 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
                 </div>
-                <!-- <div class="swiper-slide">
+                <div class="swiper-slide">
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image7.jpg" alt="alternative">
                     </div>
@@ -164,7 +164,7 @@ $dbh = new PDO('mysql:host='.$host.';dbname='.$db_name, $user, $pass);
                     <div class="image-container">
                         <img class="img-responsive" src="images/min/image6.jpg" alt="alternative">
                     </div>
-                </div> -->
+                </div>
             </div> 
         </div> 
     </div> 

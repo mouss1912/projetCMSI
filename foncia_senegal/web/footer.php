@@ -127,3 +127,18 @@
     <script type="text/javascript" src="js/other_function.js"></script>
     <script type="text/javascript" src="js/suppression.js"></script>
     <script type="text/javascript" src="js/visite.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
